@@ -1,12 +1,49 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <title>HATATA</title>
+    <style>
+        .menu-item:hover {
+            background-color: #4a5568; /* Cambia este color según tus preferencias */
+        }
+    </style>
 </head>
-<body>
-    <a href="{{ url_for('logout') }}">Cerrar Sesión</a>
-    {{ m|safe }}
+<body class="font-sans">
+    
+
+<div class="flex h-screen bg-gray-100">
+    <!-- Menú lateral -->
+    <div class="bg-gray-800 text-white w-64 flex-shrink-0" style="background-color: #282828;">
+        <!-- Logo -->
+        <div class="p-4">
+            <img src="/static/logo_empresa.png" alt="Logo" class="w-full">
+        </div>
+
+        <!-- Menú de navegación -->
+        <div class="p-4">
+            <ul class="space-y-2">
+                <li><a href="{{ url_for('faqs') }}" class="block px-4 py-2 text-white menu-item transition duration-300">Quienes Somos?</a></li>
+                <li><a href="{{ url_for('estadistica') }}" class="block px-4 py-2 text-white menu-item transition duration-300">Estadisticas Profundas</a></li>
+                <li><a href="{{ url_for('test1') }}" class="block px-4 py-2 text-white menu-item transition duration-300">Test Golpe de Calor</a></li>
+                <li><a href="{{ url_for('test2') }}" class="block px-4 py-2 text-white menu-item transition duration-300">Te sentis deshidratado?</a></li>
+                <li><a href="{{ url_for('logout') }}">Cerrar Sesión</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="flex-1 overflow-hidden">
+        <div class="p-4">
+            <h2 class="text-2xl font-bold mb-4">MAPA</h2>
+             {{ m|safe }}
+            <p>Este es el contenido principal de la página.</p>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

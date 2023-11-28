@@ -1,26 +1,104 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <style>
+        .seccion-con-fondo {
+            background-image: url(./../static/foto_de_fondo2-crop.png);
+            background-size: 100% auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 80vh;
+            padding: 20px;  
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .fuente-regular {
+            font-family: 'Lato', sans-serif;
+            font-weight: 400; /* Peso regular */
+        }
+
+        .fuente-negra {
+            font-family: 'Lato', sans-serif;
+            font-weight: 900; /* Peso negrita */
+        }
+    </style>
+    <title>Iniciar sesión | Hatapy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/estilos.css">
 </head>
 <body>
+    <header class="bg-[#282828] h-55">
+        <nav class="flex justify-between items-center h-20 text-2xl">
+            <div>
+                <br>
+                <img src="../static/logo_hatapy2.png" alt="Hatapy" style="max-width: 400px; max-height: 400px">
+            </div>
 
-<h2>Iniciar Sesión</h2>
-<form method="post" action="/login">
-    {{ form.hidden_tag() }}
-    <div class>
-        {{ form.username.label }} {{ form.username }}
-    </div>
-    <div>
-        {{ form.password.label }} {{ form.password }}
-    </div>
-    <button type="submit">Iniciar Sesión</button>
+            <ul>
+                    <button id="btnAbrir" class="relative">
+                        <br>
+                        <img src="../static/quienes_somos.png" alt="Quienes somos" style="max-width: 150px; max-height: 150px">
+                    </button>
 
-</form>
-<a href="/register">Registrarte</a>
+            </ul>
+        </nav>
+    </header>
 
+    <main>
+        <section class="bg-[#282828] h-screen">
+            
+            <form action="/login" method="POST">
+                {{ form.hidden_tag() }}
 
+                <div class="seccion-con-fondo">
+
+                    
+                    <div class="flex flex-col justify-center items-center my-24 p-15 grid gap-10"> <!-- div de la parte de los datos para el login -->
+
+                        <div>
+                            <p class="flex justify-center items-center fuente-negra text-3xl font-bold text-orange-400">
+                                <strong>Registrate para recibir alertas</strong>
+                            </p>
+                        </div>
+                    
+                    <div class="flex w-1/2 grid content-center items-center">
+                        <label for="email" class="text-white fuente-regular text-lg"> {{ form.username.label }} </label>
+                        {{ form.username(class="flex items-center justify-center rounded-xl py-2 px-4 w-96 min-h-[20%] mb-2 bg-white bg-opacity-50 fuente-regular") }}
+                        
+                    </div>
+                    
+                    
+                    <div>
+                        <label for="tel" class="text-white fuente-regular text-lg">{{ form.password.label }} </label>
+                       {{ form.password(class='flex items-center justify-center rounded-xl py-2 px-4 w-96 min-h-[20%] mb-2 bg-white bg-opacity-50 fuente-regular')}}
+                    </div>
+
+                    <div class="bg-dark-gray-blue text-white rounded-full py-5 w-[60] text-center justify-items-start bg-orange-400 hover:bg-gradient-to-b from-orange-600 to-light-royal-blue">
+                    <button type="submit" class="text-2xl font-bold fuente-negra">Iniciar sesión</button>
+                    </div>
+
+                    <div class="bg-dark-gray-blue text-white rounded-full py-5 w-[40] text-center justify-items-start bg-orange-400 hover:bg-gradient-to-b from-orange-600 to-light-royal-blue">
+                        <button type="submit" class="text-2xl font-bold fuente-negra">Registrarse</button>
+                        </div>
+                    </div>
+                    
+
+                </div>
+                </div>
+            </form>
+        </section>
+    </main>
 </body>
 </html>
+

@@ -1,36 +1,128 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test de Golpe de Calor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Test's</title>
+    <style>
+      body {
+          margin: 0;
+          overflow: hidden;
+          background: linear-gradient(45deg, #1a202c, #2d3748, #1a202c, #2d3748),
+                      url('../icons/fondo.jpg') center/cover;
+          background-size: 400% 400%;
+          animation: gradient 15s ease infinite;
+      }
+
+      @keyframes gradient {
+          0% {
+              background-position: 0% 50%;
+          }
+          50% {
+              background-position: 100% 50%;
+          }
+          100% {
+              background-position: 0% 50%;
+          }
+      }
+  </style>
 </head>
-<body>
-    <h1>Test de Golpe de Calor</h1>
+<body class="font-lato bg-gray-900">
+    <header>
+            <nav class="flex justify-left items-center h-14" >
+                <div>
+                    <a href="inicio.html" class="logo_empresa">
+                        <div>
+                            <img src="static/logo_empresa.png" alt="Logo de la empresa" class="w-44 h-22 ml-12  mt-40">
+                        </div>
+                    </a>
+                </div>
+            </nav>
+    </header> 
 
-    <form action="/test1" method="post">
-        <label for="piel_caliente">¿Nota su piel extremadamente caliente y enrojecida?</label>
-        <input type="text" id="piel_caliente" name="piel_caliente" required>
+    <nav>
+        <div class="flex justify-around text-4xl text-white font-lato">
+            <h2>
+                Test golpe de calor
+            </h2>
+        </div>
+        <div class="flex justify-around text-2xl text-white font-lato">
+            <a href="disclaimer" class="disclaimer">
+                <div class="container flex items-center mr-8">
+                    <!-- Imagen -->
+                    <img src="static/advertencia.png" alt="disclaimer" style="width:30px; height: auto;" class="mr-4">
+                
+                    <!-- Contenedor de texto -->
+                    <div class="text-container">
+                      <p>Advertencia, este test no esta avalado por médicos.</p>
+                      <!-- Puedes agregar más contenido de texto aquí -->
+                    </div>
+                  </div>
+            </a>
+        </div>
+    </nav>
+    <div class="container mx-auto mt-8 p-8 bg-white max-w-md rounded shadow-md">
 
-        <label for="dolor_de_cabeza">¿Usted sufre de dolores de cabeza en este momento?</label>
-        <input type="text" id="dolor_de_cabeza" name="dolor_de_cabeza" required>
+        <h1 class="text-2xl font-semibold mb-6">Formulario de preguntas</h1>
+    
+        <form action="/test1" method="post">
+    
+          <!-- Campo de nombre -->
+          <div class="mb-4">
+            <label for="piel_caliente" class="block text-gray-700 text-sm font-bold mb-2">Nota su piel extremadamente caliente y enrojecida? Ingrese si o no: </label>
+            <input type="radio" name="piel_caliente" value="si" required> Sí
+            <input type="radio" name="piel_caliente" value="no" required> No
+          </div>
+    
+          <div class="mb-4">
+            <label for="dolor_de_cabeza " class="block text-gray-700 text-sm font-bold mb-2">Usted sufre de dolores de cabeza en este momento? Ingrese si o no: </label>
+            <input type="radio" name="dolor_de_cabeza" value="si" required> Sí
+            <input type="radio" name="dolor_de_cabeza" value="no" required> No
+          </div>
 
-        <label for="dolor_de_estomago">¿Usted presenta dolores de estómago, falta de apetito, náuseas o vómitos?</label>
-        <input type="text" id="dolor_de_estomago" name="dolor_de_estomago" required>
+          <div class="mb-4">
+            <label for="dolor_de_cabeza " class="block text-gray-700 text-sm font-bold mb-2">Usted presenta dolores de estómago, falta de apetito, náuseas o vómitos? Ingrese si o no: </label>
+            <input type="radio" name="dolor_de_cabeza" value="si" required> Sí
+            <input type="radio" name="dolor_de_cabeza" value="no" required> No
+          </div>
 
-        <label for="comportamiento">¿Presenta algunos de estos síntomas ahora mismo? Vértigos, mareos, desorientación, delirios, confusión o pérdida de conocimiento.</label>
-        <input type="text" id="comportamiento" name="comportamiento" required>
+          <div class="mb-4">
+            <label for="comportamiento" class="block text-gray-700 text-sm font-bold mb-2">Presentas algunos de estos sintomas ahora mismo? vértigos, mareos desorientación, delirios, confusión o pérdida de conocimiento. Ingrese si o no: </label>
+            <input type="radio" name="comportamiento" value="si" required> Sí
+            <input type="radio" name="comportamiento" value="no" required> No
+          </div>
 
-        <label for="calambres">¿Usted presenta calambres musculares en este momento?</label>
-        <input type="text" id="calambres" name="calambres" required>
+          <div class="mb-4">
+            <label for="calambres" class="block text-gray-700 text-sm font-bold mb-2"> Usted presenta calambres musculares en este momento? Ingrese si o no: </label>
+            <input type="radio" name="calambres" value="si" required> Sí
+            <input type="radio" name="calambres" value="no" required> No
+          </div>
 
-        <label for="sed">¿Usted presenta una sed intensa o una sensación de sequedad en la boca?</label>
-        <input type="text" id="sed" name="sed" required>
+          <div class="mb-4">
+            <label for="sed" class="block text-gray-700 text-sm font-bold mb-2">Usted presenta una sed intensa o una sensacion de sequedad en la boca? Ingrese si o no: </label>
+            <input type="radio" name="sed" value="si" required> Sí
+            <input type="radio" name="sed" value="no" required> No
+          </div>
 
-        <label for="movimientos">¿Usted presenta problemas con la coordinación y la ejecución de movimientos?</label>
-        <input type="text" id="movimientos" name="movimientos" required>
+          <div class="mb-4">
+            <label for="movimientos" class="block text-gray-700 text-sm font-bold mb-2">Usted presenta problemas con la coordinación y la ejecución de movimientos? Ingrese si o no: </label>
+            <input type="radio" name="movimientos" value="si" required> Sí
+            <input type="radio" name="movimientos" value="no" required> No
+          </div>
+    
+          <!-- Botón de enviar -->
+          <div class="flex justify-center w-[100%]">
+              <a href="{{ url_for('respuesta') }}" class="bg-orange-400 text-white p-2 rounded">Enviar</a>
+          </div>
+          
+        </form>
+        
+      </div>
+    
 
-        <button type="submit">Enviar Respuestas</button>
-    </form>
+
+    
 </body>
 </html>
