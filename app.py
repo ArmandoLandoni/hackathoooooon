@@ -33,8 +33,6 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
-
-
 # Rutas 
 @app.route("/", methods=['GET','POST'])
 @login_required
@@ -49,12 +47,10 @@ def index():
     return render_template("index.html",tasks=tasks,form=form)
 
 
-
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('index'))
+        return redirect(url_for('inicio'))
 
     form = LoginForm()
     if form.validate_on_submit():
@@ -62,25 +58,18 @@ def login():
         if user and user.password == form.password.data:
             login_user(user)
             flash('Inicio de sesión exitoso', 'success')
-            return redirect(url_for('index'))
+            return redirect(url_for('inicio'))
         else:
             flash('Credenciales incorrectas. Inténtalo de nuevo.', 'danger')
 
     return render_template('login.html', form=form)
 
 
-
-
-
 @app.route('/logout')
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('index'))
-
-
-
-
+    return redirect(url_for('login'))
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -102,31 +91,12 @@ def register():
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @app.route('/inicio')
 def inicio():
     m = folium.Map(location=(-23.442503, -58.443832), zoom_start=6, width=700, height=400)
-    
-    return m.get_root().render() 
+    m = m.get_root()._repr_html_()
 
+    return render_template("inicio.html", m=m)
 
 
 
@@ -176,44 +146,6 @@ def test1():
 
     return render_template('test1.html')  # Nombre del template HTML que contiene el formulario
    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
