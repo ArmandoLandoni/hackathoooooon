@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, render_template_string, flash
 import folium
-from folium.plugins import MarkerCluster
+from folium.plugins import MarkerCluster, HeatMap
+import numpy as np
 from flask_login import LoginManager,login_user, logout_user, login_required, current_user
 from database import create_db
 from models import Task,User
@@ -94,8 +95,57 @@ def register():
 @app.route('/inicio')
 def inicio():
     m = folium.Map(location=(-23.442503, -58.443832), zoom_start=6, width=700, height=400)
+
+    data = np.array([np.random.normal(-23.442503, 0.05, size=100),
+                     np.random.normal(-58.443832, 0.02, size=100)]).T
+    HeatMap(data, radius=18).add_to(m)
+    
+    data = np.array([np.random.normal(-22.39746, 0.08, size=100),
+                     np.random.normal(-61.25582, 0.05, size=100)]).T
+    HeatMap(data, radius=18).add_to(m)
+    
+    data = np.array([np.random.normal(-22.39587, 0.09, size=100),
+                     np.random.normal(-61.24559, 0.06, size=100)]).T
+    HeatMap(data, radius=18).add_to(m)
+    
+    data = np.array([np.random.normal(-19.9208, 0.05, size=100),
+                     np.random.normal(-61.7587, 0.02, size=100)]).T
+    HeatMap(data, radius=18).add_to(m)
+    
+    data = np.array([np.random.normal(-19.91314, 0.09, size=100),
+                     np.random.normal(-61.7705, 0.06, size=100)]).T
+    HeatMap(data, radius=18).add_to(m)
+    
+    data = np.array([np.random.normal(-19.91158, 0.08, size=100),
+                     np.random.normal(-61.76035, 0.05, size=100)]).T
+    HeatMap(data, radius=18).add_to(m)
+    
+    data = np.array([np.random.normal(-22.47086, 0.07, size=100),
+                     np.random.normal(-62.12252, 0.04, size=100)]).T
+    HeatMap(data, radius=18).add_to(m)
+
+    data = np.array([np.random.normal(-19.82469, 0.04, size=100),
+                     np.random.normal(-59.99069, 0.01, size=100)]).T
+    HeatMap(data, radius=18).add_to(m)
+
+    data = np.array([np.random.normal(-19.81326, 0.09, size=100),
+                     np.random.normal(-59.98668, 0.06, size=100)]).T
+    HeatMap(data, radius=18).add_to(m)
+
+    data = np.array([np.random.normal(-19.54259, 0.06, size=100),
+                     np.random.normal(-59.30218, 0.03, size=100)]).T
+    HeatMap(data, radius=18).add_to(m)
+
+    data = np.array([np.random.normal(-25.2862937, 0.08, size=100),
+                     np.random.normal(-57.5618486, 0.05, size=100)]).T
+    HeatMap(data, radius=18).add_to(m)
+
+    
+
+
     m = m.get_root()._repr_html_()
 
+    
     return render_template("inicio.html", m=m)
 
 
