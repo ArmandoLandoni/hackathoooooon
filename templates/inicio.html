@@ -1,10 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link href="https://fonts.cdnfonts.com/css/my-first-font" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>HATATA</title>
     <style>
         .menu-item:hover {
@@ -12,12 +13,12 @@
         }
     </style>
 </head>
-<body class="font-sans">
+<body class="font-sans ", style="background-color: #ffbe41;">
     
 
-<div class="flex h-screen bg-gray-100">
+<div class="flex h-auto bg-gray-100">
     <!-- Menú lateral -->
-    <div class="bg-gray-800 text-white w-64 flex-shrink-0" style="background-color: #282828;">
+    <div class="bg-gray-800 text-white w-64 h-auto flex-shrink-0" style="background-color: #282828;">
         <!-- Logo -->
         <div class="p-4">
             <img src="/static/logo_empresa.png" alt="Logo" class="w-full">
@@ -26,24 +27,88 @@
         <!-- Menú de navegación -->
         <div class="p-4">
             <ul class="space-y-2">
-                <li><a href="{{ url_for('faqs') }}" class="block px-4 py-2 text-white menu-item transition duration-300">Quienes Somos?</a></li>
-                <li><a href="{{ url_for('estadistica') }}" class="block px-4 py-2 text-white menu-item transition duration-300">Estadisticas Profundas</a></li>
-                <li><a href="{{ url_for('test1') }}" class="block px-4 py-2 text-white menu-item transition duration-300">Test Golpe de Calor</a></li>
-                <li><a href="{{ url_for('test2') }}" class="block px-4 py-2 text-white menu-item transition duration-300">Te sentis deshidratado?</a></li>
-                <li><a href="{{ url_for('logout') }}">Cerrar Sesión</a></li>
+                <li><a href="{{ url_for('faqs') }}" class="block px-4 py-2 text-white menu-item transition duration-300 text-xl">Quienes Somos?</a></li>
+                <li><a href="{{ url_for('estadistica') }}" class="block px-4 py-2 text-white menu-item transition duration-300 text-xl">Estadisticas Profundas</a></li>
+                <li><a href="{{ url_for('test1') }}" class="block px-4 py-2 text-white menu-item transition duration-300 text-xl">Test Golpe de Calor</a></li>
+                <li><a href="{{ url_for('test2') }}" class="block px-4 py-2 text-white menu-item transition duration-300 text-xl">Te sentis deshidratado?</a></li>
+                <li><a href="{{ url_for('logout') }}"class="block px-4 py-2 text-white menu-item transition duration-300 text-xl">Cerrar Sesión</a></li>
             </ul>
         </div>
+        
+        
+    </div>
+    <div>    
+
+     <!-- Contenido principal -->
+     <div class=" flex bg-[#ffbe4a] justify-around overflow-hidden" style="width:180vh; background-color: #ffbe41;">
+          <div class="p-4 w-full overflow-hidden flex flex-col items-center ">
+             <h1 class="text-8xl" style="font-family: 'My First Font', sans-serif;">Mapas de foco de calor</h1>
+             <br>
+              {{ m|safe }} 
+          </div>
+          <div class="flex w-96 h-auto flex-col p-4 bg-white overflow-hidden   " , style="background-color: #282828;">
+                <img class="rounded-lg" src="/static/LMOW2ZAKCFFXPLRUJKXA3COKRY.png" alt="captura2" class="">
+                <br>
+                <p class="text-white ">Ante esta situación de riesgo, el Instituto Forestal Nacional (Infona) advierte del peligro de nuevos
+                    incendios forestales causados por la quema ilegal de basura, matorrales, campos y/o pastizales y en ese
+                    sentido, recuerda que realizar quemas de pastizales como práctica de cultivo sin autorización puede
+                    derivar en multa de entre 100 a 2.000 jornales mínimos fijados para actividades diversas no especificadas
+                    en la República. Las multas serán impuestas por los municipios, previo sumario administrativo que
+                    garantice el derecho a la defensa del supuesto infractor.
+                </p>
+                <br>
+                <img class="rounded-lg" src="/static/a1.webp" alt="captura2" class="">
+                <br>
+                <p class="text-white ">Si tu perro se queda fuera de la casa, asegurate de que tenga sombra, mucha agua y que este en un lugar con circulacion de aire. Si se queda en el interior exponelo gradualmente a la temperatura exterior para pasear
+                </p>
+                <br>
+                <img class="rounded-lg" src="/static/a2.webp" alt="captura2" class="">
+                <br>
+                <p class="text-white ">Paraguay sufrió una ola de calor con temperaturas superiores a 40 grados Celsius. Investigadores de Paraguay y Bélgica informaron el primer caso documentado de una enfermedad renal crónica llamada nefritis intersticial crónica de comunidades agrícolas (CINAC). Este problema afecta especialmente a jóvenes agricultores. Según un estudio, el 18% de las personas en diálisis en Asunción y Gran Asunción podrían tener CINAC, y la cifra podría llegar al 50% en el interior del país. La enfermedad parece estar relacionada con las condiciones climáticas extremas.
+                </p>
+                <br>
+    
+          </div>
+             
+            
+            
+            
+            
+            
+            
+            
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         </div>
+     </div>
+
     </div>
 
-    <!-- Contenido principal -->
-    <div class="flex-1 overflow-hidden">
-        <div class="p-4">
-            <h2 class="text-2xl font-bold mb-4">MAPA</h2>
-             {{ m|safe }}
-            <p>Este es el contenido principal de la página.</p>
-        </div>
-    </div>
+
+
+
+
+    
 </div>
+
 
 </body>
 </html>

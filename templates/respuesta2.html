@@ -68,9 +68,16 @@
                 <img src="static/gato_hidratado.jpg" alt="disclaimer" style="width: auto; height: auto;" class="mr-4">
                 <h1 class="text-2xl font-lato-bold mb-6 mt-12">Te recomendamos que bebas agua!</h1>
                 <!-- Botón de enviar -->
-                <div class="flex justify-center w-[100%]">
-                    <a href="{{ url_for('test1') }}" class="bg-orange-400  text-white p-2 rounded">Test golpe de calor</a>
-                </div>
+                <div class="flex flex-col">
+                    <div class="flex justify-center w-[100%] mb-4 rounded-lg">
+                      <a href="{{ url_for('test1') }}" class="bg-orange-400 text-white p-2 rounded">Test de golpe de calor</a>
+
+              </div>
+                    <div class="flex justify-center w-[100%] rounded-lg">
+                      <a href="{{ url_for('inicio') }}" class="bg-orange-400 text-white p-2 rounded">Inicio</a>
+                      </div>
+              </div>
+                
             </div>
         </div>
     </div>

@@ -89,7 +89,13 @@
                     </div>
 
                     <div class="bg-dark-gray-blue text-white rounded-full py-5 w-[40] text-center justify-items-start bg-orange-400 hover:bg-gradient-to-b from-orange-600 to-light-royal-blue">
-                        <button type="submit" class="text-2xl font-bold fuente-negra">Registrarse</button>
+                        <button type="button" class="text-2xl font-bold fuente-negra" onclick="register()">Registrarse</button>
+
+<script>
+  function register() {
+    window.location.href = "{{ url_for('register') }}";
+  }
+</script>
                         </div>
                     </div>
                     

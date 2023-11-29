@@ -6,8 +6,14 @@ from flask_login import LoginManager,login_user, logout_user, login_required, cu
 from database import create_db
 from models import Task,User
 from forms import LoginForm, RegisterForm, TaskForm
-
-
+import pandas as pd
+from dash import Dash
+from dash import dcc
+from dash import html 
+from dash.dependencies import Input, Output
+import plotly.express as px
+import plotly.subplots as sp
+import plotly.graph_objs as go
 
 
 
@@ -88,7 +94,7 @@ def register():
 
 @app.route('/inicio')
 def inicio():
-    m = folium.Map(location=(-23.442503, -58.443832), zoom_start=6, width=700, height=400)
+    m = folium.Map(location=(-23.442503, -58.443832), zoom_start=6.5,min_zoom=6.5, max_zoom=12, width=1494, height=896)
 
     data = np.array([np.random.normal(-23.442503, 0.05, size=100),
                      np.random.normal(-58.443832, 0.02, size=100)]).T
